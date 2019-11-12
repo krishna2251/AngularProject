@@ -1,0 +1,52 @@
+
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Product</h1>
+
+    <button (click)="formActive()">Edit</button><br>
+    <form #heroForm="ngForm">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" required [(ngModel)]="clickedProduct.productName"
+          name="productName" #name="ngModel" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="productDesc">Product Description</label>
+        <input type="text" class="form-control" id="productDesc" [(ngModel)]="clickedProduct.productDesc"
+          name="productDesc" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="searchTag">Search Tag</label>
+        <input type="text" class="form-control" id="searchTag" required [(ngModel)]="clickedProduct.searchTag"
+          name="searchTag" #power="ngModel" [readonly]="isActiveDiv">
+      </div>
+      <div class="form-group">
+        <label for="manufacturerCode">Manufacturer Id</label>
+        <input type="text" class="form-control" id="manufacturerId" [(ngModel)]="clickedProduct.manufacturerId"
+          name="manufacturerCode" [readonly]="isActiveDiv">
+      </div>
+      <div class="form-group">
+        <label for="storeId"> Store Id</label>
+        <input type="text" class="form-control" id="storeId" [(ngModel)]="clickedProduct.storeId" name="storeId"
+          [readonly]="isActiveDiv">
+      </div>
+      <!-- <div class="form-group">
+        <label for="catalogName">Catalog Name</label>
+        <input type="text" class="form-control" id="catalogName"
+          [(ngModel)]="clickedProduct.productCatalogDir[0].catalog.catalogName" name="catalogId"
+          [readonly]="isActiveDiv">
+      </div> -->
+
+
+
+
+      <button type="Submit" class="btn btn-success" (click)="editProduct(clickedProduct,id)"
+        [disabled]="form">Save</button>
+
+
+      &nbsp;&nbsp;
+      <!-- <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button> -->
+      <!-- <i>without</i> reset -->
+    </form>

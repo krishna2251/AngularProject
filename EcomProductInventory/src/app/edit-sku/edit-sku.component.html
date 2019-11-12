@@ -1,0 +1,53 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Sku</h1>
+
+    <button (click)="formActive()">Edit</button><br>
+    <form #heroForm="ngForm">
+      <div class="form-group">
+        <label for="Product SkuId">imageUrl</label>
+        <input type="text" class="form-control" id="productSkuId" required [(ngModel)]="clickedSku.productSkuId" name="productSkuId"
+          #name="ngModel" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">imageUrl</label>
+        <input type="text" class="form-control" id="imageUrl" required [(ngModel)]="clickedSku.imageUrl" name="imageUrl"
+          #name="ngModel" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" class="form-control" id="price" [(ngModel)]="clickedSku.price" name="price"
+          [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="productSkuCd">Search Tag</label>
+        <input type="text" class="form-control" id="productSkuCd" required [(ngModel)]="clickedSku.productSkuCd"
+          name="productSkuCd" #power="ngModel" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="ProductId">Search Tag</label>
+        <input type="text" class="form-control" id="productId" required [(ngModel)]="clickedSku.productId"
+          name="productId" #power="ngModel" [readonly]="isActiveDiv">
+      </div>
+
+      <div class="form-group">
+        <label for="optionName">Option Name</label>
+        <input type="text" class="form-control" id="optionName" [(ngModel)]="clickedSku.options[0].optionName"
+          name="optionName" [readonly]="isActiveDiv">
+      </div>
+      <div class="form-group">
+        <label for="optionValue">Option Value</label>
+        <input type="text" class="form-control" id="optionValue" [(ngModel)]="clickedSku.options[0].optionValue"
+          name="optionValue" [readonly]="isActiveDiv">
+      </div>
+      <button type="Submit" (click)="editSku(clickedSku,id)" [disabled]="form">Save</button>
+
+
+      &nbsp;&nbsp;
+      <!-- <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button> -->
+      <!-- <i>without</i> reset -->
+    </form>

@@ -1,0 +1,117 @@
+<h2>Sku</h2>
+
+
+<div class="container">
+  <!-- <app-edit-product></app-edit-product> -->
+  <div class="search-div">
+    <button mat-raised-button (click)="onCreate()">
+      <mat-icon>add</mat-icon>Create
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off"
+        (keyup)="applyFilter($event.target.value)">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="productSkuId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Product SkuId</th>
+            <td mat-cell *matCellDef="let skuList"> {{skuList.productSkuId}} </td>
+          </ng-container>
+
+      <ng-container matColumnDef="imageUrl">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Image Url</th>
+        <td mat-cell *matCellDef="let skuList"> {{skuList.imageUrl}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let skuList"> {{skuList.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="productSkuCd">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product SkuCd </th>
+        <td mat-cell *matCellDef="let skuList"> {{skuList.productSkuCd}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="productId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Id </th>
+        <td mat-cell *matCellDef="let skuList"> {{skuList.productId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="optionName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Option Name </th>
+        <td mat-cell *matCellDef="let skuList">
+          <div class="optionName">
+            <ng-container *ngFor="let skuList of skuList.options">{{skuList.optionName}}</ng-container>
+          </div>
+        </td>
+        <!-- </mat-cell> -->
+      </ng-container>
+      <ng-container matColumnDef="optionValue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Option Value </th>
+        <td mat-cell *matCellDef="let skuList">
+          <div class="optionValue">
+            <ng-container *ngFor="let skuList of skuList.options">{{skuList.optionValue}}</ng-container>
+          </div>
+        </td>
+        <!-- </mat-cell> -->
+      </ng-container>
+      <!-- <ng-container matColumnDef="actions">  
+           <mat-header-cell *matHeaderCellDef></mat-header-cell>
+           <mat-cell *matCellDef="let row">
+             <button mat-icon-button><mat-icon>launch</mat-icon></button>
+           </mat-cell>
+            </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (click)="selectedRowItem(skuList.productSkuId)" *matRowDef="let skuList; columns: displayedColumns;"></tr>
+      <!-- <mat-footer-row *matFooterRowDef="['loading']"[ngClass]="{'hide':productList!=null"></mat-footer-row> -->
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+<br>
+<app-edit-sku [clickedSku]='clickedItem'></app-edit-sku>
+
+<!-- <div class="container">
+
+    <table class="blueTable">
+        <thead>
+      <tr>
+        
+        <th>imageUrl</th>
+        <th>Price</th>
+        <th>Product Sku Cd</th>
+        <th>Option Name</th>
+        <th>Option Value</th>
+        
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sku of sku;let i=index">
+      
+        <td>{{sku.imageUrl}}</td>
+        <td>{{sku.price}}</td>
+        <td>{{sku.productSkuCd}}</td>
+        <ng-container *ngFor="let option of sku.options">
+          <td>{{option.optionName}}</td>
+          <td>{{option.optionValue}}</td>
+        </ng-container>
+        
+       
+      
+      </tr>
+    </tbody>
+  </table> -->
+<!-- <div class="row">
+      <button (click)="addEmployee()" class="btn btn-success">Add Employee</button>
+  </div> -->
+<!-- </div> -->

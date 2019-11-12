@@ -1,0 +1,45 @@
+<form [formGroup]="catalog" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <h3>Add Catalog </h3>
+    <div class="controles-container">
+      <input type="hidden" formControlName="$key">
+      <mat-form-field>
+        <input formControlName="catalogName" matInput placeholder="Catalog Name">
+        <mat-error>This Field is mandatory .</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="catalogDesc" matInput placeholder="Catalog Description">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="catalogLevel" matInput placeholder="Catalog Level">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="parentCatalogId" matInput placeholder="Parent CatalogId">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="storeId" matInput placeholder="Store Id">
+      </mat-form-field>
+      <!-- <mat-form-field *ngFor="let productCatalogDir of product.controls.productCatalogDir.controls; let k = index">
+            <div formArrayName="productCatalogDir">
+                  <div [formGroupName]="k">
+                      <input formControlName="primaryFlg" matInput placeholder="primaryFlg">
+                      </div> -->
+      <!-- <mat-form-field *ngFor="let catalog of product.controls.productCatalogDir.catalog; let d=index">
+                          <div formControlName="catalog">
+                                <input formControlName="catalogName" matInput placeholder="catalogName">
+                            </div>
+          
+                          </mat-form-field> -->
+      <!-- </div> -->
+
+      <!-- </mat-form-field> -->
+
+    </div>
+    <div class="button-row">
+      <button mat-raised-button color="primary" (click)="addCatalog()" type="submit">Submit</button>
+      <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+    </div>
+
+
+  </mat-grid-list>
+</form>

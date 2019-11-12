@@ -1,0 +1,118 @@
+<div class="container-fluid example-wrapper">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 example-col">
+                <mat-label>Product</mat-label>
+                <mat-form-field>
+    <mat-select [formControl]="product">
+        <input placeholder="Search" >
+        <ng-container *ngFor="let dropdowns of productList">
+      <mat-option [value]="productList" (click)="handleCategoryChange(dropdowns.productId)">{{dropdowns.productName}}</mat-option>
+    </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Option Name</mat-label>
+  <mat-form-field>
+<mat-select [formControl]="product">
+<input placeholder="Search" >
+<ng-container *ngFor="let skudropdowns of clickedProductResult">
+<div *ngFor="let drop of skudropdowns.sku">
+ <div *ngFor="let drops of drop.options">
+
+<mat-option [value]="productList" (click)="handleCategoryChange(skudropdowns.optionId)">{{drops.optionName}}</mat-option>
+</div>
+</div>
+</ng-container>
+</mat-select>
+</mat-form-field>
+<mat-label>Option Value</mat-label>
+<mat-form-field>
+        <mat-select [formControl]="product">
+        <input placeholder="Search" >
+        <ng-container *ngFor="let skudropdowns of clickedProductResult">
+        <div *ngFor="let drop of skudropdowns.sku">
+         <div *ngFor="let drops of drop.options">
+        
+        <mat-option [value]="productList"  (click)="handleCategoryChange(drops.optionId)">{{drops.optionValue}}</mat-option>
+        </div>
+        </div>
+        </ng-container>
+        </mat-select>
+        </mat-form-field>
+                
+                <!-- <kendo-combobox *ngFor="let dropdown of productList"  [placeholder]="'Select category...'"  [value]="selectedCategory"  [textField]="'category'"
+                [valueField]="'productId'"
+                (valueChange)="handleCategoryChange($event)" >
+            
+            </kendo-combobox> -->
+
+                <!-- <kendo-combobox *ngFor="let dropdown of productList"
+                    [data]="dropdown"
+                    [placeholder]="'Select category...'"
+                    [value]="productList"
+                    [textField]="'product'"
+                    [valueField]="'productId'"
+                    (valueChange)="handleCategoryChange($event)"
+                >{{dropdowns.productName}}  
+                </kendo-combobox> -->
+            </div>
+            <!-- <div class="col-xs-12 col-sm-4 example-col">
+                <p>Option Name:</p>
+                <kendo-combobox
+                    [disabled]="isDisabledProducts"
+                    [placeholder]="'Select Option...'"
+                    [data]="dataResultProducts"
+                    [value]="selectedProduct"
+                    [textField]="'productName'"
+                    [valueField]="'productId'"
+                    (valueChange)="handleProductChange($event)"
+                >
+                </kendo-combobox>
+            </div>
+            <div class="col-xs-12 col-sm-4 example-col">
+                <p>Option Value:</p>
+                <kendo-combobox
+                    [disabled]="isDisabledOrders"
+                    [placeholder]="'Select Value...'"
+                    [value]="selectedOrder"
+                    [data]="dataResultOrders"
+                    [textField]="'orderName'"
+                    [valueField]="'orderId'"
+                    (valueChange)="handleOrderChange($event)"
+                >
+                </kendo-combobox>
+            </div> -->
+        </div>
+    </div>
+
+<!-- <div class="container-fluid example-wrapper">
+  <div class="row">
+      <div class="col-xs-12 col-sm-4 example-col">
+          <p>Option Name:</p>
+          <kendo-dropdownlist
+               
+              [data]="dataOption"
+              [value]="selectedOptionName"
+              [defaultItem]="defaultItemOptionName"
+              [textField]="'optionName'"
+              [valueField]="'optionId'"
+              (valueChange)="handleCategoryChange($event)"
+          >
+          </kendo-dropdownlist>
+      </div>
+      <div class="col-xs-12 col-sm-4 example-col">
+          <p>Option Value:</p>
+          <kendo-dropdownlist
+              [disabled]="isDisabledProducts"
+              [defaultItem]="defaultItemOptionValue"
+              [data]="dataResultProducts"
+              [value]="selectedOptionValue"
+              [textField]="'optionValue'"
+              [valueField]="'valueId'"
+              (valueChange)="handleProductChange($event)"
+          >
+          </kendo-dropdownlist>
+      </div>
+  </div>
+</div> -->
+
