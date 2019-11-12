@@ -1,0 +1,13 @@
+<p>sku works!</p>
+<form [formGroup] ="sku" (ngSubmit) = "submit()">
+    <div class="form-group">
+        <label>Image Url</label>
+        <input type="text" formControlName="imageUrl">
+        <label>Price</label>
+        <input type="text" formControlName="price">
+        <label>Product SkuCd</label>
+        <input type="text" formControlName="productSkuCd">
+      </div>
+      <app-imageupload formControlName="image" [progress]="progress"></app-imageupload>
+      <button>Submit</button>
+</form>
